@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SoftifyApp.Models.Company>
+
+@{
+    ViewData["Title"] = "Listing";
+}
+<style>
+    h3{
+      
+    }
+</style>
+
+<h3 >List of Company</h3>
+
+<div class="row no-gutters">
+    <div class="col-12">
+        <p>
+            <a asp-action="Create" class="btn btn-danger float-right">Add Company</a>
+        </p>
+    </div>
+  
+</div>
+<table class="table table-bordered table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterationNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfEmployees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyNtNnO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyWebsite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterationNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfEmployees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyNtNnO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyWebsite)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
